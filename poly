@@ -91,8 +91,8 @@ font-2 = "Noto Sans:size=10;0"
 font-3 = "Noto Sans Mono:size=10;0"
 
 modules-left = bspwm xwindow
-modules-center = kernel
-modules-right = pavolume memory2 cpu2 date
+modules-center = kernel date
+modules-right = pavolume memory2 cpu2
 
 tray-detached = false
 tray-offset-x = 0
@@ -158,7 +158,7 @@ font-2 = "Noto Sans:size=10;0"
 font-3 = "Noto Sans Mono:size=10;0"
 
 modules-left = load-average
-modules-center = networkspeeddown networkspeedup
+modules-center = networkspeeddown networkspeedup date
 modules-right = filesystem
 
 ;tray-detached = false
@@ -256,8 +256,8 @@ label = Arch: %output%
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 format-prefix = "  "
-format-prefix-foreground = #FFBB00
-format-underline = #FFBB00
+format-prefix-foreground = #ffffff
+format-underline = #ffffff
 
 [module/aur-updates]
 type = custom/script
@@ -267,7 +267,7 @@ label = Aur: %output%
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 format-prefix = "  "
-format-prefix-foreground = #FFBB00
+format-prefix-foreground = #ffffff
 format-underline = #FFBB00
 
 ################################################################################
@@ -483,9 +483,38 @@ format-underline = #62FF00
 ################################################################################
 
 
+[module/date]
+type = internal/date
 
+; Seconds to sleep between updates
+; Default: 1.0
+interval = 1.0
 
+; See "https://en.cppreference.com/w/cpp/io/manip/put_time" for details on how to format the date string
+; NOTE: if you want to use syntax tags here you need to use %%{...}
+#date = %Y-%m-%d%
 
+; Optional time format
+time = %I:%M
+
+; if `date-alt` or `time-alt` is defined, clicking
+; the module will toggle between formats
+date-alt = %A, %d %B
+time-alt = %I:%M
+
+; Available tags:
+;   <label> (default)
+format = 🕓 <label>
+format-background = #00000000
+format-foreground = #ffffff
+
+; Available tokens:
+;   %date%
+;   %time%
+; Default: %date%
+label = %date% %time%
+label-font =
+label-foreground = #d9d8db
 
 ################################################################################
 
