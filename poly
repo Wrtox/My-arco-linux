@@ -1,4 +1,3 @@
-
 [global/wm]
 ;https://github.com/jaagr/polybar/wiki/Configuration#global-wm-settings
 margin-top = 0
@@ -27,7 +26,7 @@ format-offset =
 
 [colors]
 ; Nord theme ============
-background = 00000000
+background = #212121
 foreground = #f3f4f5
 foreground-active = #FBB93F
 occupied = #FBB93F
@@ -50,7 +49,7 @@ alert = #FBB93F
 monitor = ${env:MONITOR}
 ;monitor-fallback = HDMI1
 width = 100%
-height = 25
+height = 20
 ;offset-x = 0%
 ;offset-y = 0%
 radius = 0.0
