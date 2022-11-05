@@ -271,7 +271,7 @@ alt + F3
 
 #Xlunch app launcher
 #alt + F5
-#    xlunch --config ~/.config/xlunch/default.conf --input ~/.config/xlunch/entries.dsv   
+#    xlunch --config ~/.config/xlunch/default.conf --input ~/.config/xlunch/entries.dsv
 
 
 #################################################################
