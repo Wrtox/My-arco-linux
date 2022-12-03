@@ -1,38 +1,46 @@
-import:
-  # uncomment the flavour you want below:
-  - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
-  # - ~/.config/alacritty/catppuccin/catppuccin-macchiato.yml
-  # - ~/.config/alacritty/catppuccin/catppuccin-frappe.yml
-  # - ~/.config/alacritty/catppuccin/catppuccin-latte.yml
 font:
   normal:
-    family: Caskaydia Cove Nerd Font Mono
-    style: SemiLight
+    family: monospace
+    style: Regular
 
   bold:
-    family: Caskaydia Cove Nerd Font Mono
+    family: monospace
     style: Bold
 
   italic:
-    family: Caskaydia Cove
-    style: Regular Italic
+    family: monospace
+    style: Italic
 
   bold_italic:
-    family: Caskaydia Cove
-    style: SemiBold Italic
+    family: monospace
+    style: Bold Italic
 
-  size: 8
+  size: 11
+# Colors (Monokai Pro)
+colors:
+  # Default colors
+  primary:
+    background: '#240a08'
+    foreground: '#FCFCFA'
 
-window:
-  padding:
-    x: 4
-    y: 3
+  # Normal colors
+  normal:
+    black:   '#403E41'
+    red:     '#FF6188'
+    green:   '#C40233'
+    yellow:  '#FFD866'
+    blue:    '#FC9867'
+    magenta: '#AB9DF2'
+    cyan:    '#78DCE8'
+    white:   '#FCFCFA'
 
-cursor:
-  style:
-    shape: Underline
-  vi_mode_style:
-    shape: Block
-
-env:
-  TERM: xterm-256color
+  # Bright colors
+  bright:
+    black:   '#ab6a6a'
+    red:     '#FF6188'
+    green:   '#A9DC76'
+    yellow:  '#FFD866'
+    blue:    '#FC9867'
+    magenta: '#AB9DF2'
+    cyan:    '#78DCE8'
+    white:   '#FCFCFA'
