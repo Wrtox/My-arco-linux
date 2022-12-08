@@ -7,23 +7,25 @@
 # Customization Wiki https://github.com/dylanaraps/neofetch/wiki/Customizing-Info
 
 print_info() {
-
-    info "${cl2} ╭─" distro
-    info "${cl2} ├─" kernel
-	info "${cl2} ├─" users
-    info "${cl2} ├─" packages
+#╰─
+#├─
+#╭─
+#    info "${cl2} ╭─" distro
+    info "${cl2} ╭─" kernel
+	info "${cl2} ├─" users
+#    info "${cl2} ├─" packages
     info "${cl2} ╰─" shell
     echo
     info "${cl6} ╭─" wm
     info "${cl6} ├─" term
-	info "${cl6} ├─" term_font
-	info "${cl6} ├─" theme
-	info "${cl6} ├─" icons
-	info "${cl6} ╰─" font
+	info "${cl6} ╰─" term_font
+#	info "${cl6} ├─" theme
+#	info "${cl6} ├─" icons
+#	info "${cl6} ╰─" font
     echo
     info "${cl4} ╭─" model
     info "${cl4} ├─" cpu
-    info "${cl4} ├─" gpu
+#    info "${cl4} ├─" gpu
 #	info "${cl4} ├─" gpu_driver
     info "${cl4} ├─" resolution
     info "${cl4} ├─" memory
@@ -761,7 +763,7 @@ image_source="auto"
 #       Slackware, SunOS, LinuxLite, OpenSUSE, Raspbian,
 #       postmarketOS, and Void have a smaller logo variant.
 #       Use '{distro name}_small' to use the small variants.
-ascii_distro="auto"
+ascii_distro="Arch"
 
 # Ascii Colors
 #
