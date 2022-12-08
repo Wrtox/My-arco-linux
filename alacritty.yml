@@ -1,4 +1,4 @@
-font:
+\font:
   normal:
     family: monospace
     style: Regular
@@ -20,7 +20,7 @@ font:
 colors:
   # Default colors
   primary:
-    background: '#240a08'
+    background: '#18191b'
     foreground: '#FCFCFA'
 
   # Normal colors
@@ -29,10 +29,10 @@ colors:
     red:     '#FF6188'
     green:   '#C40233'
     yellow:  '#FFD866'
-    blue:    '#FC9867'
+    blue:    '#80fcfc'
     magenta: '#AB9DF2'
     cyan:    '#78DCE8'
-    white:   '#FCFCFA'
+    white:   '#78DCE8'
 
   # Bright colors
   bright:
