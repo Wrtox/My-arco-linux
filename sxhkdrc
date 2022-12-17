@@ -2,6 +2,19 @@
 # KEYBOARD BINDINGS FOR ANY TWM
 #################################################################
 
+# quit/restart bspwm
+super + alt + {q,r}
+	bspc {quit,wm -r}
+	
+	# alternate between the tiled and monocle layout
+super + m
+	bspc desktop -l next
+	
+# set the window state
+super + {t,shift + t,s,f}
+	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+
 #################################################################
 # SUPER + FUNCTION KEYS
 #################################################################
