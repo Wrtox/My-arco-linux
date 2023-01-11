@@ -5,15 +5,23 @@
 # quit/restart bspwm
 super + alt + {q,r}
 	bspc {quit,wm -r}
-	
+
 	# alternate between the tiled and monocle layout
 super + m
 	bspc desktop -l next
-	
+
 # set the window state
 super + {t,shift + t,s,f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
+
+    # rotate windows
+super + r
+    bspc node @parent -R 90
+
+    # swap last used workspaces
+super + Tab
+    bspc desktop -f last
 
 #################################################################
 # SUPER + FUNCTION KEYS
@@ -23,9 +31,7 @@ super + {t,shift + t,s,f}
 super + F1
 	vivaldi-stable
 
-# Atom
-super + F2
-	atom
+
 
 #Inkscape
 super + F3
@@ -92,8 +98,8 @@ super + x
     archlinux-logout
 
 #Rofi theme selector
-super + r
-    rofi-theme-selector
+#super + r
+#    rofi-theme-selector
 
 #Urxvt
 super + t
@@ -438,8 +444,8 @@ super + q
 #################################################################
 
 #Focus selected desktop
-super + Tab
-	bspc desktop -f '^{1-9,10}'
+#super + Tab
+#	bspc desktop -f '^{1-9,10}'
 
 # Increase/decrease window gap on focused desktop
 super + bracket{left,right}
