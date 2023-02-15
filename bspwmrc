@@ -39,6 +39,7 @@ bspc rule -a Vlc state=fullscreen
 #Floating applications
 bspc rule -a Arandr state=floating
 bspc rule -a Archlinux-tweak-tool.py state=floating
+bspc rule -a mpv state=floating
 bspc rule -a Arcolinux-welcome-app.py state=floating
 bspc rule -a Arcolinux-calamares-tool.py state=floating
 bspc rule -a feh state=floating
@@ -53,7 +54,7 @@ bspc rule -a Xfce4-settings-manager state=tiled
 
 #open applications on specific workspaces
 
-#bspc rule -a Vivaldi-stable desktop='^6' follow=on
+bspc rule -a mpv desktop='^4' follow=on
 #bspc rule -a Vivaldi-snapshot desktop='^6' follow=on
 
 

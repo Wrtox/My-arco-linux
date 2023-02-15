@@ -20,7 +20,8 @@ $HOME/.config/polybar/launch.sh &
 #setxkbmap -layout be
 
 keybLayout=$(setxkbmap -v | awk -F "+" '/symbols/ {print $2}')
-
+exec --no-startup-id setxkbmap ar,us -option 'grp:alt_shift_toggle'
+#run
 if [ $keybLayout = "be" ]; then
   run sxhkd -c ~/.config/bspwm/sxhkd/sxhkdrc-azerty &
 else
