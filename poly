@@ -1,153 +1,550 @@
-fading = true;
-fade-in-step = 0.08;
-fade-out-step = 0.08;
-fade-delta = 5;
-no-fading-openclose = false;
-no-fading-destroyed-argb = false;
-fade-steps = [ "0.03" "0.03" ];
+[global/wm]
+;https://github.com/jaagr/polybar/wiki/Configuration#global-wm-settings
+margin-top = 0
+margin-bottom = 0
 
-fade-exclude = [
-  "class_g = 'slop'",
-  "name = 'bar'",
-  "class_g = 'maim'",
-  "class_g = 'mpv'",
-  "class_g = 'bspwm'"
-];
+[settings]
+;https://github.com/jaagr/polybar/wiki/Configuration#application-settings
+throttle-output = 5
+throttle-output-for = 10
+screenchange-reload = true
+compositing-background = over
+compositing-foreground = over
+compositing-overline = over
+compositing-underline = over
+compositing-border = over
 
-transition = true;
-transition-length = 200;
-transition-pow-x = 0.5;
-transition-pow-y = 0.05;
-transition-pow-w = 0.5;
-transition-pow-h = 0.5;
-size-transition = true;
-transition-direction = "smart-x";
-transition-timing-function = "ease-out-cubic";
-transition-offset = 25;
-transition-step = 0.028;
-transition-rule = [];
+; Define fallback values used by all module formats
+format-foreground = #fbfbfb
+format-background = #FBB93F
 
-inactive-opacity = 1;
-active-opacity = 1;
-inactive-opacity-override = true;
-detect-client-opacity = true;
-inactive-dim = 0.20;
 
-focus-exclude = [
-  "name = 'bar'",
-  "class_g = 'polybar'",
-  "class_g = 'Polybar'",
-  "class_g = 'i3lock'",
-  "class_g = 'slop'",
-  "class_g = 'dmenu'",
-  "class_g = 'dmenu_run'",
-  "class_g *= 'GLava'",
-  "class_g = 'conky'",
-  "class_g = 'Rofi'",
-  "class_g *= 'eww-'",
-  "class_g = 'Peek'",
-  "class_g = 'bspwm'"
-];
+[colors]
+; Nord theme ============
+background = #000000
+foreground = #f3f4f5
+foreground-active = #FBB93F
+occupied = #FBB93F
+occupied-active = #FBB93F
+active = #8ad9fb
 
-daemon = true;
-experimental-backends = true;
-backend = "glx";
+; =======================
 
-vsync = true;
-dbus = true;
-mark-wmwin-focused = true;
 
-glx-no-rebind-pixmap = true;
-glx-no-stencil = true;
-use-damage = true;
+################################################################################
+################################################################################
+############                  MAINBAR-BSPWM                         ############
+################################################################################
+################################################################################
 
-shadow = true;
-shadow-offset-x = -15;
-shadow-offset-y = -15;
-shadow-offset-z = -15;
-shadow-opacity = 0.5;
+[bar/mainbar-bspwm]
+monitor = ${env:MONITOR}
+;monitor-fallback = HDMI1
+width = 100%
+height = 20
+;offset-x = 0%
+;offset-y = 0%
+radius = 0.0
+fixed-center = true
+bottom = false
+separator = |
 
-shadow-exclude = [
-  "class_g = 'bspwm'",
-  "class_g = 'conky'",
-  "name = 'plank'",
-  "class_g = 'slop'",
-  "class_g = 'stalonetray'",
-  "class_g *= 'GLava'",
-  "class_g = 'Peek'",
-  "class_g = 'Screenkey'",
-  "class_g = 'bspwm'",
-  "class_g = 'i3lock'",
-  "class_g = 'eww-ocular'",
-  "class_g = 'eww-bolt'",
-  "class_g = 'eww-lumin'",
-  "class_g = 'eww-melody'",
-  "class_g = 'eww-origin'",
-  "class_g = 'eww-clime'",
-  "class_g = 'eww-power'",
-  "class_g = 'eww-window'",
-  "class_g = 'Polybar'",
-  # "class_g = 'eww-chrono'",
-  # "class_g = 'eww-vertigo'",
-  #"class_g = 'Rofi'",
-  "_GTK_FRAME_EXTENTS@:c",
-];
+background = ${colors.background}
+foreground = ${colors.foreground}
 
-shadow-ignore-shaped = false;
+line-size = 1
+line-color = #f00
 
-wintypes: {
-  popup_menu = {
-    opacity = 1.0,
-    shadow = false,
-  },
-  dropdown_menu = { 
-    opacity = 1.0,
-    shadow = false,
-  },
-  dnd = { 
-    shadow = false,
-    shadow = false
-  },
-  dock = { shadow = true },
-  tooltip = {
-    fade = true,
-    shadow = false,
-    opacity = 1.0,
-    focus = true,
-  }
-};
+wm-restack = bspwm
+override-redirect = true
 
-# slide-left, slide-right, zoom, slide-top, slide-bottom, fly-in
-animations = true;
-animation-stiffness = 400
-animation-window-mass = 0.5
-animation-dampening = 30
-animation-clamping = true
-animation-for-open-window = "slide-left";
-animation-for-unmap-window = "slide-right";
-animation-for-workspace-switch-in = "slide-left";
-animation-for-workspace-switch-out = "fly-in";
-animation-for-transient-window = "slide-down";
+; Enable support for inter-process messaging
+; See the Messaging wiki page for more details.
+enable-ipc = true
 
-# shadow-radius = 20;
-corner-radius = 8;
-round-borders = true;
+border-size = 0
+;border-left-size = 0
+;border-right-size = 25
+;border-top-size = 20
+;border-bottom-size = 25
+border-color = #00000000
 
-log-level = "ERROR";
-log-file = "/home/maker/.config/picom/log.picom.txt";
-rounded-corners-exclude = [
-  #"window_type = 'normal'",
-#  "class_g = 'awesome'",
-#  "class_g = 'URxvt'",
-#  "class_g = 'XTerm'",
-#  "class_g = 'kitty'",
-   #"class_g = 'Alacritty'",
-   "class_g = 'Polybar'",
-   "class_i = 'polybar'",
-   "class_g = 'eww-bar'"
-#  "class_g = 'code-oss'",
-#  #"class_g = 'TelegramDesktop'",
-#  "class_g = 'firefox'",
-#  "class_g = 'Thunderbird'"
-];
-# vim:ft=dosini:nowrap
+padding-left = 0
+padding-right = 1
+
+module-margin-left = 3
+module-margin-right = 3
+
+;https://github.com/jaagr/polybar/wiki/Fonts
+font-0 = "Terminus:size=12;2"
+font-1 = "feather:size=12;3"
+font-2 = "FontAwesome:size=8;2"
+font-3 = "Noto Sans Mono CJK JP:size=12;2"
+
+modules-left = bspwm xwindow
+modules-center =  date
+modules-right = pavolume memory2
+
+tray-detached = false
+tray-offset-x = 0
+tray-offset-y = 0
+tray-padding = 2
+tray-maxsize = 20
+tray-scale = 1.0
+tray-position = right
+tray-background = ${colors.background}
+
+#scroll-up = bspwm-desknext
+#scroll-down = bspwm-deskprev
+
+compositing-background = source
+compositing-foreground = over
+compositing-overline = over
+compositing-underline = over
+compositing-border = over
+
+
+################################################################################
+################################################################################
+############                  MAINBAR-BSPWM-EXTRA                   ############
+################################################################################
+################################################################################
+
+[bar/mainbar-bspwm-extra]
+monitor = ${env:MONITOR}
+;monitor-fallback = HDMI1
+width = 100%
+height = 30
+;offset-x = 0%
+;offset-y = 0%
+radius = 0.0
+fixed-center = true
+bottom = true
+separator = |
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 2
+line-color = #f00
+
+wm-restack = bspwm
+override-redirect = true
+
+; Enable support for inter-process messaging
+; See the Messaging wiki page for more details.
+enable-ipc = true
+
+border-size = 0
+;border-left-size = 0
+;border-right-size = 25
+;border-top-size = 0
+;border-bottom-size = 25
+border-color = #00000000
+
+padding-left = 0
+padding-right = 1
+
+module-margin-left = 3
+module-margin-right = 3
+
+;https://github.com/jaagr/polybar/wiki/Fonts
+font-0 = "Terminus:size=12;2"
+font-1 = "feather:size=12;3"
+font-2 = "FontAwesome:size=8;2"
+font-3 = "Noto Sans Mono CJK JP:size=12;2"
+
+;tray-detached = false
+;tray-offset-x = 0
+;tray-offset-y = 0
+;tray-padding = 2
+;tray-maxsize = 20
+;tray-scale = 1.0
+;tray-position = right
+;tray-background = ${colors.background}
+
+scroll-up = bspwm-desknext
+scroll-down = bspwm-deskprev
+
+
+
+################################################################################
+################################################################################
+############                       MODULE BSPWM                     ############
+################################################################################
+################################################################################
+
+[module/bspwm]
+type = internal/bspwm
+
+enable-click = true
+enable-scroll = false
+reverse-scroll = false
+pin-workspaces = true
+
+ws-icon-0 = 1;I
+ws-icon-1 = 2;II
+ws-icon-2 = 3;III
+ws-icon-3 = 4;V
+ws-icon-4 = 5;IV
+
+
+format = <label-state> <label-mode>
+
+label-focused = %icon%
+label-focused-background = ${colors.background}
+label-focused-underline= #ffffff
+label-focused-padding = 2
+label-focused-foreground = #ffffff
+
+label-occupied = %icon%
+label-occupied-padding = 2
+label-occupied-background = ${colors.background}
+label-occupied-foreground = #ffffff
+
+label-urgent = %icon%
+label-urgent-padding = 2
+
+label-empty = %icon%
+label-empty-foreground = ${colors.foreground}
+label-empty-padding = 2
+label-empty-background = ${colors.background}
+label-monocle = "  "
+#label-monocle-foreground = ${colors.foreground}
+#label-tiled = "  "
+label-tiled-foreground = ${colors.foreground}
+label-fullscreen = "  "
+#label-fullscreen-foreground = ${colors.foreground}
+#label-floating = "  "
+#label-floating-foreground = ${colors.foreground}
+#label-pseudotiled = "  "
+label-pseudotiled-foreground = ${colors.foreground}
+label-locked = "  "
+label-locked-foreground = ${colors.foreground}
+label-sticky = "  "
+label-sticky-foreground = ${colors.foreground}
+label-private =  "     "
+label-private-foreground = ${colors.foreground}
+
+; Separator in between workspaces
+;label-separator = |
+;label-separator-padding = 10
+;label-separator-foreground = #ffb52a
+
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+
+
+################################################################################
+###############################################################################
+############                       MODULES A-Z                      ############
+################################################################################
+################################################################################
+
+[module/arch-updates]
+type = custom/script
+exec = ~/.config/polybar/scripts/check-arch-updates.sh
+interval = 1000
+label = Arch: %output%
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+format-prefix = "  "
+format-prefix-foreground = #ffffff
+format-underline = #ffffff
+
+[module/aur-updates]
+type = custom/script
+exec = ~/.config/polybar/scripts/check-aur-updates.sh
+interval = 1000
+label = Aur: %output%
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+format-prefix = "  "
+format-prefix-foreground = #ffffff
+format-underline = #FFBB00
+
+################################################################################
+
+#################################################################
+
+[module/discord]
+type = custom/script
+exec = echo " Discord "
+;exec = echo " "
+interval = 1
+tail = true
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+format-prefix-foreground = #738adb
+format-underline = #738adb
+click-left = discord &
+click-right = killall Discord && killall Discord
+format-prefix = ""
+
+#################################################################
+
+[module/ewmh]
+type = internal/xworkspaces
+
+pin-workspaces = false
+enable-click = true
+enable-scroll = true
+reverse-scroll = true
+
+icon-0 = 1;
+icon-1 = 2;
+icon-2 = 3;
+icon-3 = 4;
+icon-4 = 5;
+#icon-5 = 6;
+format = <label-state>
+label-monitor = %name%
+
+label-active = %name%
+label-active-foreground = ${colors.foreground-active}
+label-active-background = ${colors.background}
+label-active-underline= #FBB93F
+label-active-padding = 2
+
+label-occupied = %name%
+label-occupied-foreground = ${colors.occupied-active}
+label-occupied-background = ${colors.background}
+label-occupied-padding = 2
+
+label-urgent = %name%
+label-urgent-foreground = ${colors.foreground}
+label-urgent-background = ${colors.alert}
+label-urgent-underline = ${colors.alert}
+label-urgent-padding = 2
+
+label-empty = %name%
+label-empty-foreground = ${colors.foreground}
+label-empty-padding = 2
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+
+
+#################################################################
+
+[module/ewmh-noscroll]
+type = internal/xworkspaces
+
+pin-workspaces = false
+enable-click = true
+enable-scroll = false
+reverse-scroll = false
+
+icon-0 = 1;
+icon-1 = 2;
+icon-2 = 3;
+icon-3 = 4;
+icon-4 = 5;
+#icon-5 = 6;
+format = <label-state>
+label-monitor = %name%
+
+label-active = %name%
+label-active-foreground = ${colors.foreground-active}
+label-active-background = ${colors.background}
+label-active-underline= #FBB93F
+label-active-padding = 2
+
+label-occupied = %name%
+label-occupied-foreground = ${colors.occupied-active}
+label-occupied-background = ${colors.background}
+label-occupied-padding = 2
+
+label-urgent = %name%
+label-urgent-foreground = ${colors.foreground}
+label-urgent-background = ${colors.alert}
+label-urgent-underline = ${colors.alert}
+label-urgent-padding = 2
+
+label-empty = %name%
+label-empty-foreground = ${colors.foreground}
+label-empty-padding = 2
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+
+################################################################################
+
+################################################################################
+
+
+[module/date]
+type = internal/date
+
+; Seconds to sleep between updates
+; Default: 1.0
+interval = 1.0
+
+; See "https://en.cppreference.com/w/cpp/io/manip/put_time" for details on how to format the date string
+; NOTE: if you want to use syntax tags here you need to use %%{...}
+#date = %Y-%m-%d%
+
+; Optional time format
+time = %I:%M
+
+; if `date-alt` or `time-alt` is defined, clicking
+; the module will toggle between formats
+date-alt = %A, %d %B
+time-alt = %I:%M
+
+; Available tags:
+;   <label> (default)
+format = 🕓 <label>
+format-background = #00000000
+format-foreground = #ffffff
+
+; Available tokens:
+;   %date%
+;   %time%
+; Default: %date%
+label = %date% %time%
+label-font =
+label-foreground = #d9d8db
+
+################################################################################
+
+
+################################################################################
+
+
+
+
+################################################################################
+
+
+################################################################################
+
+[module/pamac-manager]
+type = custom/script
+exec = pamac checkupdates -q | wc -l
+interval = 1000
+label = Pamac : %output%
+tail = true
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+format-prefix-foreground = #738adb
+format-underline = #738adb
+click-right = pamac-manager &
+click-left = pamac-manager &
+format-prefix = " "
+
+################################################################################
+
+[module/pavolume]
+type = custom/script
+tail = true
+label = %output%
+exec = ~/.config/polybar/scripts/pavolume.sh --listen
+click-right = exec pavucontrol
+click-left = ~/.config/polybar/scripts/pavolume.sh --togmute
+scroll-up = ~/.config/polybar/scripts/pavolume.sh --up
+scroll-down = ~/.config/polybar/scripts/pavolume.sh --down
+format-underline = #00000000
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+
+
+
+
+################################################################################
+
+[module/variety]
+type = custom/script
+exec = echo " Variety"
+;exec = echo " "
+interval = 1
+tail = true
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+format-prefix = ""
+format-prefix-foreground = #FFFFF
+format-underline = #0084FF
+click-right = variety --preferences
+click-left = variety --selector
+
+################################################################################
+
+
+################################################################################
+
+[module/xkeyboard]
+;https://github.com/jaagr/polybar/wiki/Module:-xkeyboard
+type = internal/xkeyboard
+blacklist-0 = num lock
+
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground}
+format-prefix-background = ${colors.background}
+format-prefix-underline = #3ecfb2
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+
+label-layout = %layout%
+label-layout-underline = #3ecfb2
+label-indicator-padding = 2
+label-indicator-margin = 1
+label-indicator-background = ${colors.background}
+label-indicator-underline = ${colors.foreground}
+
+################################################################################
+
+[module/xwindow]
+;https://github.com/jaagr/polybar/wiki/Module:-xwindow
+type = internal/xwindow
+
+; Available tokens:
+;   %title%
+; Default: %title%
+label = %title%
+label-maxlen = 50
+
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+
+###############################################################################
+
+
+[module/xworkspaces]
+type = internal/xworkspaces
+
+pin-workspaces = false
+enable-click = true
+enable-scroll = true
+reverse-scroll = true
+
+
+icon-0 = 1;
+icon-1 = 2;
+icon-2 = 3;
+icon-3 = 4;
+icon-4 = 5;
+#icon-5 = 6;
+format = <label-state>
+label-monitor = %name%
+
+label-active = %index%
+label-active-foreground = ${colors.active}
+label-active-background = ${colors.background}
+label-active-underline= #FBB93F
+label-active-padding = 2
+
+label-occupied = %index%
+label-occupied-foreground = ${colors.foreground}
+label-occupied-background = ${colors.background}
+label-occupied-padding = 2
+
+label-urgent = %index%
+label-urgent-foreground = ${colors.foreground}
+label-urgent-background = ${colors.alert}
+label-urgent-underline = ${colors.alert}
+label-urgent-padding = 2
+
+
+label-empty = %index%
+label-empty-foreground = ${colors.foreground}
+label-empty-padding = 2
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
